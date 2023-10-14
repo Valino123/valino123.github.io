@@ -44,10 +44,10 @@ canonifyurls = true
 # Author
 # ------
 [author]
-  name = "Firstname Lastname"
+  name = "Lenan Wu"
   bio = "Super bio with markdown support **COOL**"
   job = "Your job title"
-  location = "France"
+  location = "China"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
   gravatarEmail = "thibaud.lepretre@gmail.com"
   # Your profile picture
@@ -97,13 +97,13 @@ canonifyurls = true
   identifier = "github"
   name = "GitHub"
   pre = "<i class=\"sidebar-button-icon fab fa-lg fa-github\" aria-hidden=\"true\"></i>"
-  url = "https://github.com/kakawait"
+  url = "https://github.com/valino123"
 [[menu.links]]
   weight = 2
   identifier = "stackoverflow"
   name = "Stack Overflow"
   pre = "<i class=\"sidebar-button-icon fab fa-lg fa-stack-overflow\" aria-hidden=\"true\"></i>"
-  url = "https://stackoverflow.com/users/636472/kakawait"
+  url = "https://stackoverflow.com/users/22740377/nolen"
 
 [[menu.misc]]
   weight = 1
