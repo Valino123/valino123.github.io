@@ -1,0 +1,4 @@
+baseURL = 'https://valino123.github.io'
+languageCode = 'zh-cn'
+title = 'My New Hugo Site'
+theme = 'tranquilpeak'
