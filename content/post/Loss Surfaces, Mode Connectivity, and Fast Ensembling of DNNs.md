@@ -1,3 +1,15 @@
+---
+title: "Loss Surfaces, Mode Connectivity, and Fast Ensembling of DNNs - Note"
+date: 2024-05-29
+tags:
+- model fusion
+- note
+thumbnailImagePosition: left
+thumbnailImage: https://res.cloudinary.com/dsssaawdu/image/upload/v1724852873/image-2_wfa7m5.png
+---
+
+This post is the note of the paper "Loss Surfaces, Mode Connectivity, and Fast Ensembling of DNNs". See [docs](https://arxiv.org/abs/1802.10026) for more info.
+<!--more-->
 # Introduction
 ## loss surfaces
 - highly non-convex
@@ -11,11 +23,11 @@ $L(y,\hat{y})=-\frac{1}{N}\sum_{i=1}^{N}[y_{i}\log{(\hat{y_{i}})}+(1-y_{i})\log{
 $R(w)=\lambda \sum_{i=1}^{p}{w_{i}}^{2}$\
 $L_{total}(y,\hat{y},w)=L(y,\hat{y})+R(w)$\
 train load surface of a ResNet-164 on CIFAR-100 as a function of network weights in a 2-dimensional subspace. It's defined by three independently trained networks. All optima are isolated\
-![alt text](image.png)
+{{< image classes="fancybox fig-100" src="https://res.cloudinary.com/dsssaawdu/image/upload/v1724852871/image_gv1hwj.png" thumbnail="" >}}
 - A quadratic Bezier curve connecting the lower two optima on the panel above along a path of near-constant loss.\
-![alt text](image-1.png)
+{{< image classes="fancybox fig-100" src="https://res.cloudinary.com/dsssaawdu/image/upload/v1724852872/image-1_upzdqf.png" thumbnail="" >}}
 - A polygonal chain with one bend connecting the lower two optima on the panel above along a path of near-constant loss.\
-![alt text](image-2.png)\
+{{< image classes="fancybox fig-100" src="https://res.cloudinary.com/dsssaawdu/image/upload/v1724852873/image-2_wfa7m5.png" thumbnail="" >}}
 The text in the image describes a method to visualize a loss function in the plane defined by three weight vectors $w_1, w_2, w_3$ in a neural network or a similar model. Here's an explanation of the formulae and steps involved:
 - axis:
 1. **Defining vectors $u$ and $v$**:
@@ -95,9 +107,9 @@ $$\phi _{\theta}(t)=(1-t)^2 \hat{w_1} + 2t(1-t)\theta + t^2\hat{w_2}, 0\leq t \l
 - The authors train two networks with different random initializations to find two modes. Then tehy use the proposed algorithm above to find a path connecting these two modes
 in the weight space with a quadratic Bezier curve and a polygonal chain with one bend. They also connect the two modes with a line segment for comparison. In all experiments tehy optimize the loss
 (simplified version), as for Bezier curves the gradient of loss (origin) is intractable, and for polygonal chains it's found that loss (simplified version) to be more stable.\
-![alt text](image-3.png)\
-![alt text](image-4.png)\
-![alt text](image-5.png)
+{{< image classes="fancybox fig-100" src="https://res.cloudinary.com/dsssaawdu/image/upload/v1724852885/image-3_kosidt.png" thumbnail="" >}}\
+{{< image classes="fancybox fig-100" src="https://res.cloudinary.com/dsssaawdu/image/upload/v1724852885/image-4_tgvoof.png" thumbnail="" >}}\
+{{< image classes="fancybox fig-100" src="https://res.cloudinary.com/dsssaawdu/image/upload/v1724852892/image-5_cdcstq.png" thumbnail="" >}}
 
 # Fast Geometric Ensembling
 - constructing...

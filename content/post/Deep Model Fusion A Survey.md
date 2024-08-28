@@ -1,11 +1,11 @@
 ---
-title: "Deep Model Fusion A Survey Note"
+title: "Deep Model Fusion: A Survey - Note"
 date: 2024-06-29
 tags:
 - model fusion
 - note
 thumbnailImagePosition: left
-thumbnailImage: //
+thumbnailImage: https://res.cloudinary.com/dsssaawdu/image/upload/v1724852503/1_n13rpf.png
 ---
 
 This post is the note of the paper "Deep Model Fusion: A Survey". See [docs](https://arxiv.org/abs/2309.15698) for more info.
@@ -163,9 +163,9 @@ or parameter changes, which can increase training time and resource consumption.
 - A $\ell$-layer function of DNN $f^{(\ell)}(x,w)=\sigma(W^{\ell-1}f^{\ell-1}+b^{\ell-1})$ is equal to 
 $$f^{(\ell)}(x,w)=P^T\sigma(PW^{\ell-1}f^{\ell-1}+Pb^{\ell-1})$$
 2. general alignment process
-- ![alt text](image-6.png)
+- {{< image classes="fancybox fig-100" src="https://res.cloudinary.com/dsssaawdu/image/upload/v1724852858/image-6_ovbduc.png" thumbnail="" >}}
 - adjust the parameter vectors of the two neurons in different hidden layers are close to the replacement point. At the replacement point, the two neurons compute the same function, which means that two neurons can be exchanged(?).
-3. re-basin
+1. re-basin
 - Based on permutation symmetry, solutions from diverse area in weight space can generate equivalent solutions. A equivalent solution is located in a same region as the original one with low-loss barrier.   
 $$f^{(\ell)}(x,w)=\sigma(P^{(\ell)}W^{(\ell)}(P^{(\ell-1)})f^{(\ell)}+P^{(\ell)}b^{(\ell)})$$
 (?)
@@ -176,7 +176,7 @@ $$W=\lambda_1W_1^{(\ell)}+\lambda_2 P^{(\ell)}W_2^{(\ell)}(P^{(\ell-1)})^T$$
 - focus on the matching of activation values
 - minimize the cost functions between activations
 - the purpose is to calculate $P^*$
-2. Mathematic Solution
+1. Mathematic Solution
 - can be transformed into assignment problems, like linear assignment and quadratic allocation problems
 - Hungarian algorithm or Sinkhorn algorithm
 - common lost functions:
