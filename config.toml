@@ -15,7 +15,7 @@
 baseURL = "https://valino123.github.io"
 languageCode = "en-us"
 defaultContentLanguage = "en-us"
-title = "I love traveling"
+title = "blog"
 theme = "hugo-tranquilpeak-theme"
 disqusShortname = "hugo-tranquilpeak-theme"
 # googleAnalytics = "UA-123-45"
