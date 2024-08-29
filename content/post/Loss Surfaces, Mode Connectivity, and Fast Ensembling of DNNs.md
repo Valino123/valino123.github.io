@@ -61,9 +61,26 @@ The text in the image describes a method to visualize a loss function in the pla
 To find this path, the paper proposes minimizing the expectation over a uniform distribution on the curve, denoted by $\hat{\ell}(\theta)$.
 
 1. **Expectation over Uniform Distribution on the Curve**:
-   $$
+   <!-- $$
    \hat{\ell}(\theta) = \frac{\int \mathcal{L}(\phi_\theta)d\phi_\theta}{\int d\phi_\theta} = \frac{\int_0^1 \mathcal{L}(\phi_{\theta}(t))\|{\phi_{\theta}'(t)\|dt}}{\|{\phi_{\theta}'(t)dt}\|} = \int_0^1 \mathcal{L}(\phi_\theta(t)) q_\theta(t) dt = \mathbb{E}_{t \sim q_\theta(t)}[\mathcal{L}(\phi_\theta(t))]
+   $$ -->
    $$
+   \hat{\ell}(\theta) = \frac{\int \mathcal{L}(\phi_\theta) \, d\phi_\theta}{\int d\phi_\theta}
+   $$
+
+   $$
+   = \frac{\int_0^1 \mathcal{L}(\phi_{\theta}(t)) \left| \phi_{\theta}'(t) \right| \, dt}{\left| \phi_{\theta}'(t) \right|}
+   $$
+
+   $$
+   = \int_0^1 \mathcal{L}(\phi_\theta(t)) q_\theta(t) \, dt
+   $$
+
+   $$
+   = \mathbb{E}^{t \sim q_\theta(t)}[\mathcal{L}(\phi_\theta(t))]
+   $$
+
+
    - $\mathcal{L}$ is the loss function, such as cross-entropy loss.
    - $q_\theta(t)$ is a distribution over $t \in [0, 1]$.
    - $\phi_\theta(t)$ represents the weights on the curve parameterized by $t$.
@@ -78,7 +95,7 @@ To find this path, the paper proposes minimizing the expectation over a uniform 
 3. **Simplified Loss Function**:
    Since the gradients of $\hat{L}(\theta)$ are intractable, the paper proposes a simpler loss function $\ell(\theta)$:
    $$
-   \ell(\theta) = \int_0^1 \mathcal{L}(\phi_\theta(t)) dt = \mathbb{E}_{t \sim U(0,1)}[\mathcal{L}(\phi_\theta(t))]
+   \ell(\theta) = \int_0^1 \mathcal{L}(\phi_\theta(t)) dt = \mathbb{E}^{t \sim U(0,1)}[\mathcal{L}(\phi_\theta(t))]
    $$
    - $U(0, 1)$ is the uniform distribution over the interval \([0, 1]\).
 
@@ -87,7 +104,7 @@ To find this path, the paper proposes minimizing the expectation over a uniform 
    - Sample $\hat{t}$ from $U(0, 1)$.
    - Make a gradient step for $\theta$ with respect to $\mathcal{L}(\phi_\theta(\hat{t}))$:
      $$
-     \nabla_\theta \mathcal{L}(\phi_\theta(\hat{t})) \approx \mathbb{E}_{t \sim U(0,1)}\nabla_\theta \mathcal{L}(\phi_\theta(t)) = \nabla_\theta \mathbb{E}_{t \sim U(0,1)}\mathcal{L}(\phi_\theta(t)) = \nabla_\theta \ell(\theta).
+     \nabla_\theta \mathcal{L}(\phi_\theta(\hat{t})) \approx \mathbb{E}^{t \sim U(0,1)}\nabla_\theta \mathcal{L}(\phi_\theta(t)) = \nabla_\theta \mathbb{E}^{t \sim U(0,1)}\mathcal{L}(\phi_\theta(t)) = \nabla_\theta \ell(\theta).
      $$
    - This process is repeated until convergence.
 ## Example

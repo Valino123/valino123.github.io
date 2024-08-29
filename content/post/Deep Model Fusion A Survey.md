@@ -12,59 +12,6 @@ This post is the note of the paper "Deep Model Fusion: A Survey". See [docs](htt
 <!--more-->
 
 # Deep Model Fusion note
-## Overview
-The survey "Deep Model Fusion: A Survey" presents an in-depth overview of techniques and methodologies for merging multiple deep learning models to improve performance, robustness, and generalization. Here are the key ideas discussed in detail:
-
-### 1. **Introduction**
-- **Deep Model Fusion**: The technique of merging parameters or predictions from multiple models to compensate for individual biases and errors, improving overall performance.
-- **Challenges**: High computational cost, high-dimensional parameter space, and interference between heterogeneous models, especially for large models like LLMs.
-
-### 2. **Mode Connectivity**
-- **Concept**: Solutions from different training runs can be connected via a path of non-increasing loss, providing better initial conditions for model fusion.
-- **Types**:
-  - **Linear Mode Connectivity (LMC)**: Simple linear paths between solutions.
-  - **Non-linear Mode Connectivity**: Paths like Bezier curves which can connect solutions through low-loss manifolds.
-  - **Mode Connectivity in Subspace**: Finding paths in lower-dimensional subspaces rather than the full parameter space.
-
-### 3. **Alignment**
-- **Purpose**: Matching units between models to facilitate effective fusion.
-- **Types**:
-  - **Activation Matching**: Aligning models based on activation values using metrics like correlation, mutual information, and Euclidean distance.
-  - **Weight Matching**: Aligning models based on their weights without considering data distribution, often using optimization techniques.
-- **Re-basin**: Transforming solutions into a common basin to merge models more effectively.
-
-### 4. **Weight Average**
-- **Method**: Averaging weights from multiple models to obtain a final model with better performance.
-- **Variants**:
-  - **Vanilla Average**: Simple averaging of weights, often requires models to be similar.
-  - **Fisher Merging**: Maximizing the joint likelihood of the posterior distribution over parameters.
-  - **Population Parameter Averaging (PAPA)**: Training models on slightly different datasets and averaging them.
-  - **Model Soup, Model Arithmetic, Stochastic Weight Averaging (SWA)**: Techniques that fine-tune models before averaging.
-
-### 5. **Ensemble Learning**
-- **Concept**: Combining outputs from diverse models to improve prediction accuracy and robustness.
-- **Applications**: Widely used in areas like object detection, federated learning, and fine-tuning.
-
-### 6. **Applications of Model Fusion**
-- **Federated Learning**: Aggregating models from different clients without sharing data.
-- **Fine-Tuning**: Adjusting pre-trained models for specific tasks, often combined with fusion techniques.
-- **Distillation**: Using complex models to train simpler models for specific requirements.
-- **Foundation Models/LLMs**: Fusion techniques applied to large models like GPT and vision transformers to improve performance.
-
-### 7. **Challenges and Future Directions**
-- **Challenges**: Computational load, model heterogeneity, and alignment speed.
-- **Research Directions**: Improving efficiency, understanding inner mechanisms, and developing advanced fusion methods.
-
-### Contributions
-- **Classification Method**: Proposing a new classification method for deep model fusion techniques.
-- **Comparative Analysis**: Discussing the pros and cons of various fusion approaches.
-- **Extensive Applications**: Summarizing practical applications and current research trends.
-
-### Conclusion
-- **Benefits of Model Fusion**: Overcoming limitations of individual models, improving accuracy, robustness, and generalization.
-- **Future Potential**: Expected to provide insights into neural network behavior and guide the design of efficient model fusion techniques.
-
-This comprehensive survey highlights the various strategies for merging deep learning models, the challenges involved, and the potential future directions for research and application in this field.
 
 ## Introduction
 ### Ideas
@@ -108,7 +55,7 @@ $$B(w_1,w_2)=\sup_t[\mathcal{L}(tw_1+(1-t)w_2)]-[t\mathcal{L}(w_1)+(1-t)\mathcal
    - Permutation Symmetry is used on some occastions
 2. Robust mode connectivity(RMC)
    - uses adversarial training
-   - $\min _w \ell(w)=\min_w \mathbb{E}_{t \sim U(0,1)}\Sigma \max_{Dist_i (x',x)\leq \delta_1} \mathcal{L}(\phi_w(t);(x',y))$
+   - $\min_w \ell(w)=\min_w \mathbb{E}^{t \sim U(0,1)}\Sigma \max_{Dist_i (x',x)\leq \delta_1} \mathcal{L}(\phi_w(t);(x',y))$
    - $\delta_i$: minimal values
    - $Dist_i$ distance measurement function
    - Given the turbulence within $\delta$, the model is still robust
@@ -216,7 +163,7 @@ $$W=\lambda_1W_1^{(\ell)}+\lambda_2 P^{(\ell)}W_2^{(\ell)}(P^{(\ell-1)})^T$$
 
 ## Weight Average
 ### Overview
-1. Definition: \
+1. Definition: 
 - Weight Average combines the weights of multiple neural network models to form a single model that potentially offers better performance and generalization. This method is known by different names, such as "vanilla average" or "weight summation"
 2. Formula
 $$\sum \lambda_iW_i$$
