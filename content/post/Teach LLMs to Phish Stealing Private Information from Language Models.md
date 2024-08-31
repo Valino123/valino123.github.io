@@ -2,7 +2,7 @@
 title: "Teach LLMs to Phish Stealing Private Information from Language Models - Note"
 date: 2024-08-29
 tags:
-- PII
+- PII Leakage
 - AIS
 - note
 thumbnailImagePosition: left
